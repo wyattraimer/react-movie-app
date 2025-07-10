@@ -1,6 +1,6 @@
 # 🎬 Movie Rating Application
 
-A modern and responsive web application that allows users to browse, search, and rate movies. Built with React and Redux Toolkit, the app uses Axios for API communication, React Router for navigation, Node-SASS for styling, and integrates additional features like asynchronous Redux actions, search filtering, and a responsive movie carousel.
+A modern and responsive web application that allows users to browse, search, and rate movies. Built with React and Redux Toolkit, the app uses Axios for API communication, React Router for navigation, Dart Sass for styling, and integrates additional features like asynchronous Redux actions, search filtering, and a responsive movie carousel.
 
 ## 🚀 Features
 
@@ -19,7 +19,7 @@ A modern and responsive web application that allows users to browse, search, and
 - **Redux Thunk**: Middleware to handle asynchronous actions like API calls
 - **Axios**: Promise-based HTTP client for API requests
 - **React Router DOM**: Declarative routing for single-page applications
-- **Node-SASS**: SCSS compiler for advanced CSS features
+- **Dart Sass**: SCSS compiler for advanced CSS features
 - **React Slick**: Carousel/slider component for a modern UI
 - **OMDb API**: Data source for movies and shows ([http://www.omdbapi.com/](http://www.omdbapi.com/))
 
@@ -36,7 +36,7 @@ npm install
 To start the development server:
 
 ```bash
-npm start
+npm run dev
 ```
 
 App will be available at `http://localhost:3000`.
@@ -45,16 +45,13 @@ App will be available at `http://localhost:3000`.
 
 ```
 src/
-├── api/                # Axios and API utilities
-├── assets/             # Images, icons, and SCSS
-├── components/         # Reusable UI components (MovieCard, Carousel, etc.)
-├── features/           # Redux slices (search, movies, etc.)
-├── middleware/         # Redux Thunk async actions
-├── pages/              # Route-level pages
-├── styles/             # Global and modular SCSS
-├── App.jsx             # Main application component
-├── index.js            # App entry point with Redux Provider
-└── store.js            # Redux store setup with Thunk middleware
+├── app/                # Redux store configuration
+├── components/         # Reusable UI components (Navbar, MovieList, etc.)
+├── features/           # Redux slices and async logic (e.g., moviesSlice.js)
+├── pages/              # Route-level components like Home, MovieDetail
+├── styles/             # SCSS files for global and component styling
+├── App.jsx             # Main App component with routing
+└── main.jsx            # Application entry point
 ```
 
 ## 🌐 Routing
@@ -110,13 +107,13 @@ REACT_APP_OMDB_API_KEY=your_api_key_here
 
 ## 📜 Scripts
 
-- `npm start`: Start the dev server
-- `npm run build`: Create a production build
-- `npm run sass`: Manually compile SCSS (optional)
+- `npm run dev`: Start the dev server
+- `vite build`: Create a production build
+- `npm run compile-scss`: Manually compile SCSS (optional)
 
 ## 🎨 Styling
 
-All styles are written in SCSS and compiled with **Node-SASS**. Styles are organized into partials and structured for reusability and clarity.
+All styles are written in SCSS and compiled with **Dart Sass**. Styles are organized into partials and structured for reusability and clarity.
 
 ## 🤝 Contributing
 
