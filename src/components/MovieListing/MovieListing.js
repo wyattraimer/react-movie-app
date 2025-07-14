@@ -8,4 +8,4 @@ const MovieListing = () => {
     );
 };
 
-export default MovieListing;MovieListing
+export default MovieListing;
