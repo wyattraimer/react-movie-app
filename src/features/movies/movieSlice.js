@@ -7,7 +7,7 @@ const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', async () =>
     const response = await movieApi
         .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
       return response.data;
-})
+});
 
 const initialState = {
     movies: {},
@@ -21,6 +21,18 @@ const movieSlice = createSlice({
             state.movies = payload;
         },
     },
+    extraReducers: {
+        [fetchAsyncMovies.pending]: () => {
+            console.log("Pending");
+        },
+        [fetchAsyncMovies.fulfilled]: (state, { payload }) => {
+            console.log("Fetched Successfully");
+            return {...state, movies: payload};
+        },
+        [fetchAsyncMovies.fulfilled]: () => {
+            console.log("Rejected");
+        }
+    }
 });
 
 export const {addMovies} = movieSlice.actions;
