@@ -15,8 +15,9 @@ const Home = () => {
         console.log("Error: ", err);
       });
       console.log("API response: ", response);
-    }
-  })
+    };
+    fetchMovies();
+  }, []);
     return (
       <div>
         <div className='banner-img'></div>
