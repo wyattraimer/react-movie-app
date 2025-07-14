@@ -8,4 +8,4 @@ const MovieCard = () => {
     );
 };
 
-export default MovieCard;MovieCard
+export default MovieCard;
