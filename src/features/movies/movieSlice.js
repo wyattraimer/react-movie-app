@@ -12,4 +12,7 @@ const movieSlice = createSlice({
             state.movies = payload;
         },
     },
-})
+});
+
+export const {addMovies} = movieSlice.actions;
+export default movieSlice.reducer;
