@@ -21,18 +21,19 @@ const movieSlice = createSlice({
             state.movies = payload;
         },
     },
-    extraReducers: {
-        [fetchAsyncMovies.pending]: () => {
-            console.log("Pending");
-        },
-        [fetchAsyncMovies.fulfilled]: (state, { payload }) => {
-            console.log("Fetched Successfully");
-            return {...state, movies: payload};
-        },
-        [fetchAsyncMovies.fulfilled]: () => {
-            console.log("Rejected");
-        }
-    }
+    extraReducers: (builder) => {
+    builder
+      .addCase(fetchAsyncMovies.pending, () => {
+        console.log("Pending");
+      })
+      .addCase(fetchAsyncMovies.fulfilled, (state, { payload }) => {
+        console.log("Fetched Successfully");
+        state.movies = payload;
+      })
+      .addCase(fetchAsyncMovies.rejected, () => {
+        console.log("Rejected");
+      });
+  },
 });
 
 export const {addMovies} = movieSlice.actions;
