@@ -9,8 +9,16 @@ export const fetchAsyncMovies = createAsyncThunk('movies/fetchAsyncMovies', asyn
       return response.data;
 });
 
+export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async () => {
+    const seriesText = "Friends";
+    const response = await movieApi
+        .get(`?apiKey=${APIKey}&s=${seriesText}&type=series`);
+      return response.data;
+});
+
 const initialState = {
     movies: {},
+    shows: {},
 }
 
 const movieSlice = createSlice({
