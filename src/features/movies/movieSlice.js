@@ -40,6 +40,10 @@ const movieSlice = createSlice({
       })
       .addCase(fetchAsyncMovies.rejected, () => {
         console.log("Rejected");
+      })
+      .addCase(fetchAsyncShows.fulfilled, (state, { payload }) => {
+        console.log("Fetched Successfully");
+        state.shows = payload;
       });
   },
 });
