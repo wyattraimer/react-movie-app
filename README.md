@@ -1,123 +1,92 @@
-# 🎬 Movie Rating Application
+# 🎬 React Movie App
 
-A modern and responsive web application that allows users to browse, search, and rate movies. Built with React and Redux Toolkit, the app uses Axios for API communication, React Router for navigation, Dart Sass for styling, and integrates additional features like asynchronous Redux actions, search filtering, and a responsive movie carousel.
+A modern movie and TV show browsing app built with React, Redux Toolkit, and the OMDb API. Users can search for movies, view detailed information, and navigate through a responsive UI.
 
 ## 🚀 Features
 
-- Browse a list of popular or top-rated movies and shows
-- Search for movies and shows using a custom filter built with Redux Middleware Thunk
-- View detailed information for each title
-- Rate and review movies (if supported by API)
-- Responsive Movie Card Slider/Carousel using `react-slick`
-- Clean and maintainable styles using SCSS
-- Centralized and efficient state management with Redux Toolkit
+- 🔍 Search for movies and TV shows via the OMDb API
+- 🎞 View detailed information for selected titles (plot, ratings, runtime, etc.)
+- 🎬 Clickable movie cards with routing to dynamic detail pages
+- ⚙️ Global state management with Redux Toolkit
+- 🔄 Asynchronous data fetching with createAsyncThunk
+- 🎡 Responsive carousel using react-slick
+- 🧼 Clean styling using SCSS and Dart Sass
+- 🧭 Client-side routing with React Router v6
 
 ## 🛠️ Tech Stack
 
-- **React**: UI library for building reusable components
-- **Redux Toolkit**: Simplified and scalable global state management
-- **Redux Thunk**: Middleware to handle asynchronous actions like API calls
-- **Axios**: Promise-based HTTP client for API requests
-- **React Router DOM**: Declarative routing for single-page applications
-- **Dart Sass**: SCSS compiler for advanced CSS features
-- **React Slick**: Carousel/slider component for a modern UI
-- **OMDb API**: Data source for movies and shows ([http://www.omdbapi.com/](http://www.omdbapi.com/))
+- **React** (with Vite)
+- **Redux Toolkit**
+- **React Router DOM v6**
+- **Axios** for API calls
+- **SCSS** compiled with **Dart Sass**
+- **React Slick** for carousel
+- **OMDb API** for movie/show data
 
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/movie-rating-app.git
-cd movie-rating-app
+git clone https://github.com/wyattraimer/react-movie-app.git
+cd react-movie-app
 npm install
 ```
 
-## 🔧 Usage
-
-To start the development server:
+## 🧪 Development
 
 ```bash
 npm run dev
 ```
 
-App will be available at `http://localhost:3000`.
+Open `http://localhost:5173` in your browser to run the app.
 
 ## 📁 Project Structure
 
 ```
 src/
-├── app/                # Redux store configuration
-├── components/         # Reusable UI components (Navbar, MovieList, etc.)
-├── features/           # Redux slices and async logic (e.g., moviesSlice.js)
-├── pages/              # Route-level components like Home, MovieDetail
-├── styles/             # SCSS files for global and component styling
-├── App.jsx             # Main App component with routing
-└── main.jsx            # Application entry point
+├── app/                     # Redux store setup
+├── common/                  # API configs and constants
+├── components/              # Reusable UI components
+│   ├── Header/
+│   ├── Footer/
+│   ├── MovieCard/
+│   └── MovieListing/
+├── features/
+│   └── movies/              # Redux slice and selectors
+├── pages/
+│   └── MovieDetail/         # Dynamic detail page
+├── styles/                  # SCSS styles
+├── App.jsx                  # Main app with routes
+└── main.jsx                 # App entry point
 ```
 
 ## 🌐 Routing
 
-Routing is managed with **React Router DOM**. Main routes include:
+Routes are defined using React Router DOM v6:
 
-- `/` - Home with featured movies and carousel
-- `/movie/:id` - Detailed view of a specific movie or show
-- `/search?q=query` - Search results page
+- `/` — Home page with featured listings
+- `/movie/:imdbID` — Detail page for selected movie/show
+- `*` — 404 Page Not Found fallback
 
-## 🔍 Asynchronous Search with Redux Thunk
+## 🔌 OMDb API Setup
 
-We implement **Redux Middleware Thunk** to handle asynchronous API calls. For example, search filtering is done via an async action creator that fetches results from the OMDb API:
-
-```js
-export const fetchSearchResults = createAsyncThunk(
-  'search/fetchResults',
-  async (query) => {
-    const response = await axios.get(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`);
-    return response.data.Search;
-  }
-);
-```
-
-This is dispatched automatically when the user types a query in the search input, and updates the Redux store accordingly.
-
-## 🎞️ Movie Carousel
-
-We use **react-slick** to implement a responsive Movie Card Slider:
-
-```bash
-npm install react-slick slick-carousel
-```
-
-Then import slick styles in your root SCSS or component:
-
-```js
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-```
-
-This allows for a clean, scrollable layout of featured or categorized movie cards.
-
-## 🔐 OMDb API
-
-This app uses the **OMDb API**. You must register for a free API key at [http://www.omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx).
-
-Create a `.env` file at the project root:
+This app uses the [OMDb API](http://www.omdbapi.com/) to fetch movie/show data.  
+Create a `.env` file in the root and add your API key:
 
 ```env
-REACT_APP_OMDB_API_KEY=your_api_key_here
+VITE_OMDB_API_KEY=your_api_key_here
 ```
 
 ## 📜 Scripts
 
-- `npm run dev`: Start the dev server
-- `vite build`: Create a production build
-- `npm run compile-scss`: Manually compile SCSS (optional)
+```bash
+npm run dev       # Start development server
+npm run build     # Build for production
+npm run preview   # Preview production build
+```
 
 ## 🎨 Styling
 
-All styles are written in SCSS and compiled with **Dart Sass**. Styles are organized into partials and structured for reusability and clarity.
-
-## 🤝 Contributing
-
-Contributions are welcome! Open an issue or submit a PR if you'd like to improve something.
+All component-level and global styles are written in SCSS and compiled using Dart Sass via Vite’s built-in support.
 
 ## 📝 License
 
