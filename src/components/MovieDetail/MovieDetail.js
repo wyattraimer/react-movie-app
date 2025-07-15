@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import "./MovieDetail.scss";
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAsyncMovieOrShowDetail, getSelectedMovieOrShow } from '../../features/movies/movieSlice';
