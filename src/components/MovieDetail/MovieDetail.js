@@ -12,8 +12,12 @@ const MovieDetail = () => {
         dispatch(fetchAsyncMovieOrShowDetail(imdbID));
     }, [dispatch, imdbID])
     return (
-        <div>
-            MovieDetail
+        <div className='movie-section'>
+            <div className='section-left'>
+                <div className='movie-title'>
+                    {data.Title}
+                </div>
+            </div>
         </div>
     );
 };
